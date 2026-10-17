@@ -25,3 +25,17 @@ test('Engine starts and stops correctly with lifecycle events', async () => {
   assert.strictEqual(engine.status, 'STOPPED');
   assert.strictEqual(stoppedFired, true);
 });
+
+test('Engine returns system memory and runtime metrics', async () => {
+  const engine = new Engine({ name: 'metrics-engine' });
+  await engine.start();
+  const metrics = engine.getMetrics();
+
+  assert.strictEqual(metrics.status, 'RUNNING');
+  assert.strictEqual(metrics.engine, 'metrics-engine');
+  assert.strictEqual(typeof metrics.uptimeSeconds, 'number');
+  assert.strictEqual(typeof metrics.memory.heapUsedMB, 'number');
+  assert.ok(metrics.memory.heapUsedMB > 0);
+
+  await engine.stop();
+});
