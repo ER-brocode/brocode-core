@@ -1,0 +1,21 @@
+{
+  "name": "@er-brocode/brocode-core",
+  "version": "0.1.0",
+  "description": "Core architecture, runtime engine, and foundational libraries for ER.brocode",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test tests/",
+    "lint": "node scripts/lint.js",
+    "build": "node scripts/build.js"
+  },
+  "keywords": [
+    "brocode",
+    "runtime",
+    "orchestration",
+    "engine",
+    "resilience"
+  ],
+  "author": "ER-brocode Team",
+  "license": "MIT"
+}
